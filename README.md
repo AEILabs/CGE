@@ -104,13 +104,17 @@ A worksheet whose `<dimension>` tag under-reports its contents is read correctly
 recomputes the true extent from the cells. (openxlsx, which writes the R-built country databases,
 stamps a placeholder `<dimension ref="A1"/>` on every sheet.)
 
-**Country databases.** The generic workbooks for African economies are built by the R pipeline in
-`~/Documents/Data/CGE` ([AEILabs/CGE-SAMs](https://github.com/AEILabs/CGE-SAMs)) from GTAP Africa
-V3 (2017) and EMERGING V2 (2018): 600 workbooks under `data/<ISO3>_<year>_<family>[_med30]/`
-(families `gtap11afr`, `hybrid` at 61–65 GTAP sectors, `hybrid133` at 89–133 EMERGING sectors, each
-also as a `_mi` labour-share variant, and each at the 30-sector `_med30` scheme), listed with
-caveats in `data/registry.csv`. Those folders are git-ignored here — regenerate them with the
-pipeline's `R/10_export_cge.R`; only `test/data/SEN_2018_hybrid_med30.xlsx` ships with the repo.
+**Country databases.** The generic workbooks are built by the R pipeline in
+`~/Documents/Data/CGE` ([AEILabs/CGE-SAMs](https://github.com/AEILabs/CGE-SAMs)) for base year
+2023: 666 workbooks under `data/<ISO3>_<year>_<family>[_med30]/`, each at full resolution and at
+the 30-sector `_med30` scheme, listed with caveats in `data/registry.csv`. Families: `gtap12`
+(GTAP 12, 144 countries, 65 sectors), `hybrid` (EMERGING 2023 levels × GTAP 12 composite
+structure, 57–61 sectors, for 25 economies GTAP 12 has only inside composite regions) and
+`hybrid133` (EMERGING's own 89–133 sectors, 164 economies). All 666 reproduce their base year
+(665 to 1e-6, St Helena to 5e-6) and solve a tariff shock except two full-resolution
+133-sector ones (Nepal, Tunisia). Those folders are git-ignored here — regenerate
+them with the pipeline's `R/10_export_cge.R`; only `test/data/SEN_2018_hybrid_med30.xlsx` ships
+with the repo.
 
 ### Units and scale
 
